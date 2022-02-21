@@ -14,8 +14,7 @@ const BlogDetails = () => {
 
   const handleClick = () => {
     fetch(
-      "https://port-3000-js-practice-vice889681.codeanyapp.com/api/blogs/" +
-        blog.id,
+      "https://port-3000-js-practice-vice889681.codeanyapp.com/api/blogs/" + id,
       {
         method: "DELETE",
       }
