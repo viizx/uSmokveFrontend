@@ -5,26 +5,28 @@ import Login from "./components/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Register from "./components/Register";
 
+import Blogs from "./components/Blogs";
+import BlogDetails from "./components/BlogDetails";
+
 function App() {
   return (
     <div className="App">
       <Router>
         <div className="App">
           <Nav />
-          <div className="container">
+          <div>
             <Switch>
               <Route exact path="/">
                 <Land />
               </Route>
-            </Switch>
-            <Switch>
               <Route exact path="/login">
                 <Login />
               </Route>
-            </Switch>
-            <Switch>
               <Route exact path="/register">
                 <Register />
+              </Route>
+              <Route path="/blogs/:id">
+                <BlogDetails />
               </Route>
             </Switch>
           </div>

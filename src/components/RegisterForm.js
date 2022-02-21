@@ -27,6 +27,9 @@ function RegisterForm() {
             id="inputPassword"
             type="password"
           ></input>
+          <label className="formLabel" for="tel">
+            Broj Mobitela
+          </label>
           <input
             className="formItem"
             placeholder="Broj mobitela"

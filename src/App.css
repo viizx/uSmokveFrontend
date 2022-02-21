@@ -9,7 +9,7 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 5px;
+  flex-direction: column;
 }
 .navbar {
   padding: 20px;
@@ -45,26 +45,39 @@
 }
 .landing {
   object-fit: contain;
-  background: url("./images/background2.png") center center/cover no-repeat;
+  background: url("./images/background.svg") center center/cover no-repeat;
   height: 75vh;
   background-color: transparent;
   width: 100%;
   display: flex;
-  padding: 50px;
 }
 .naslovi {
   font-size: xx-large;
+  padding: 20px;
 }
 
 .login {
   align-content: center;
 }
 
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* blog previews / list */
 .blog-preview {
   padding: 10px 16px;
-  margin: 20px 0;
+  width: 115px;
+  margin: 20px 5px;
   border-bottom: 1px solid #fafafa;
+}
+.blog-list {
+  display: flex;
+  padding: 35px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
@@ -136,11 +149,8 @@
   border-radius: 8px;
   padding: 5px 8px;
   margin: 2px;
-  box-shadow: none;
-  outline-width: 0px;
-  stroke-width: 0;
   transform: scale(1.2);
-  outline: none;
+  outline-style: none;
 }
 
 .formItem {
