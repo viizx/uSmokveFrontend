@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 import Land from "./components/Land";
@@ -10,24 +11,22 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="App">
-          <Nav />
-          <div>
-            <Switch>
-              <Route exact path="/">
-                <Land />
-              </Route>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <Route exact path="/register">
-                <Register />
-              </Route>
-              <Route path="/blogs/:id">
-                <BlogDetails />
-              </Route>
-            </Switch>
-          </div>
+        <Nav />
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <Land />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/register">
+              <Register />
+            </Route>
+            <Route path="/blogs/:id">
+              <BlogDetails />
+            </Route>
+          </Switch>
         </div>
       </Router>
     </div>
