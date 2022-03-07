@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import BlogDetails from "./components/BlogDetails";
 import useFetch from "./components/utils/useFetch";
 import User from "./components/User";
+import ForgotPassword from "./components/ForgotPassword";
 function App() {
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
@@ -44,6 +45,9 @@ function App() {
             </Route>
             <Route path="/user/:id">
               <User auth={authObject} />
+            </Route>
+            <Route path="/forgot-password">
+              <ForgotPassword />
             </Route>
           </Switch>
         </div>
