@@ -19,9 +19,11 @@ function Nav(props) {
   return (
     <div>
       <nav className="navbar">
-        <h1>u Smokve</h1>
+        <Link to="/">
+          <h1>u Smokve</h1>
+        </Link>
+        <Link to="/blogs"></Link>
         <div className="links">
-          <Link to="/">Home</Link>
           {name ? (
             <Link
               to={`/user/${userId}`}

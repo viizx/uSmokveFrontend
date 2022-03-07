@@ -8,8 +8,9 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = async (e) => {
-    const creds = { email, password };
     e.preventDefault();
+    const creds = { email, password };
+    console.log(creds);
     const rawResponse = await fetch(
       "https://port-3000-js-practice-vice889681.codeanyapp.com/api/user/login/",
       {
@@ -20,11 +21,16 @@ function LoginForm() {
     );
     try {
       const response = await rawResponse.json();
-      localStorage.setItem("auth-token", response.token);
-      localStorage.setItem("user", JSON.stringify(response.user));
-      history.go(0);
+      console.log(response);
+      if (response.message) {
+        console.log(response.message);
+      } else {
+        localStorage.setItem("auth-token", response.token);
+        localStorage.setItem("user", JSON.stringify(response.user));
+        history.go(0);
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   return (
