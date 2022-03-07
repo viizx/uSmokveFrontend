@@ -1,5 +1,6 @@
 import React from "react";
 import LoginForm from "./LoginForm";
+import User from "./User";
 
 function Login({ user }) {
   return (

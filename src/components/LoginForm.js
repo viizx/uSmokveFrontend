@@ -1,36 +1,37 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
 
 function LoginForm() {
+  const history = useHistory();
+  if (localStorage.getItem("auth-token")) history.push("/");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const creds = { email, password };
-    console.log(creds)
     e.preventDefault();
-    fetch(
+    const rawResponse = await fetch(
       "https://port-3000-js-practice-vice889681.codeanyapp.com/api/user/login/",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json",
-     },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(creds),
       }
-    ).then(response => response.json())
-    .then(data => {
-        console.log(data)
-    }).catch(err => {
-        console.log(err)
-    })
+    );
+    try {
+      const response = await rawResponse.json();
+      localStorage.setItem("auth-token", response.token);
+      localStorage.setItem("user", JSON.stringify(response.user));
+      history.go(0);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label className="formLabel" for="inputEmailAddres">
-            Email adresa
-          </label>
+          <label className="formLabel">Email adresa</label>
         </div>
         <input
           className="formItem"
@@ -42,9 +43,7 @@ function LoginForm() {
         ></input>
         <div>
           <div>
-            <label className="formLabel" for="inputPassword">
-              Šifra
-            </label>
+            <label className="formLabel">Šifra</label>
           </div>
           <input
             className="formItem"

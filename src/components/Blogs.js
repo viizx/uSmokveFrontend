@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const Blogs = ({ blogs }) => {
-  console.log(blogs);
   return (
     <div className="blog-list">
       {blogs.map((blog) => (
