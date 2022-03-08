@@ -6,10 +6,11 @@ import Login from "./components/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Register from "./components/Register";
 import BlogDetails from "./components/BlogDetails";
-import useFetch from "./components/utils/useFetch";
 import User from "./components/User";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
+import Items from "./components/Items";
+
 function App() {
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
@@ -52,6 +53,9 @@ function App() {
             </Route>
             <Route path="/:id/reset/:token">
               <ResetPassword />
+            </Route>
+            <Route path="/items">
+              <Items />
             </Route>
           </Switch>
         </div>

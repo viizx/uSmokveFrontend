@@ -18,8 +18,7 @@ function Nav(props) {
     };
   });
 
-  const logout = (e) => {
-    e.preventDefault;
+  const logout = () => {
     localStorage.clear();
     history.go(0);
   };
@@ -32,6 +31,16 @@ function Nav(props) {
         <Link to="/blogs"></Link>
         <div className="links">
           {name && <button onClick={logout}>Logout</button>}
+          <Link
+            to="/items"
+            style={{
+              color: "white",
+              backgroundColor: "#f1356d",
+              borderRadius: "8px",
+            }}
+          >
+            Items
+          </Link>
           {name ? (
             <Link
               to={`/user/${userId}`}
