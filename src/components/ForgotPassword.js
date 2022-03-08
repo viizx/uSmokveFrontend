@@ -6,8 +6,7 @@ function ForgotPassword() {
   const history = useHistory();
   if (localStorage.getItem("auth-token")) history.push("/");
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  const [isSent, setIsSent] = useState(false);
+  const [message, setMessage] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     const creds = { email };
@@ -22,12 +21,7 @@ function ForgotPassword() {
     );
     try {
       const response = await rawResponse.json();
-      console.log(response);
-      if (response.message) {
-        setError(response.message);
-      } else {
-        setIsSent(true);
-      }
+      setMessage(response.message);
     } catch (error) {
       console.error(error);
     }
@@ -47,7 +41,7 @@ function ForgotPassword() {
           onChange={(e) => setEmail(e.target.value)}
         ></input>
 
-        {error && <p className="err">{error}</p>}
+        {message && <h4 className="err">{message.message}</h4>}
         <div className="container">
           <button className="loginBtn" type="submit">
             Reset password

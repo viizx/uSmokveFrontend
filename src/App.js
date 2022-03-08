@@ -9,6 +9,7 @@ import BlogDetails from "./components/BlogDetails";
 import useFetch from "./components/utils/useFetch";
 import User from "./components/User";
 import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 function App() {
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
@@ -48,6 +49,9 @@ function App() {
             </Route>
             <Route path="/forgot-password">
               <ForgotPassword />
+            </Route>
+            <Route path="/:id/reset/:token">
+              <ResetPassword />
             </Route>
           </Switch>
         </div>
