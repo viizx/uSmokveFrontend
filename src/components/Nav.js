@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Nav(props) {
+  const history = useHistory();
   const [userId, setUserId] = useState(null);
   const [name, setName] = useState(null);
 
@@ -16,6 +17,12 @@ function Nav(props) {
       isMounted = false;
     };
   });
+
+  const logout = (e) => {
+    e.preventDefault;
+    localStorage.clear();
+    history.go(0);
+  };
   return (
     <div>
       <nav className="navbar">
@@ -24,6 +31,7 @@ function Nav(props) {
         </Link>
         <Link to="/blogs"></Link>
         <div className="links">
+          {name && <button onClick={logout}>Logout</button>}
           {name ? (
             <Link
               to={`/user/${userId}`}
