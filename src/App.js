@@ -10,6 +10,7 @@ import User from "./components/User";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import Items from "./components/Items";
+import {BasketContext, BasketProvider} from "./components/BasketContext";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ function App() {
     };
   });
   return (
+      <BasketProvider>
     <div className="App">
       <Router>
         <Nav auth={authObject} />
@@ -61,6 +63,7 @@ function App() {
         </div>
       </Router>
     </div>
+    </BasketProvider>
   );
 }
 
